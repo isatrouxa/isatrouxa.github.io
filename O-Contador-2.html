@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Página com Iframe e Anúncios</title>
+<style>
+    :root {
+      --bg-dark: #121212;
+      --card-dark: #1f1f1f;
+      --green: #4CAF50;
+      --green-hover: #66bb6a;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .ad-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .ad {
+      background-color: var(--card-dark);
+      border: 1px solid var(--green);
+      border-radius: var(--radius);
+      color: var(--green);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .ad:hover {
+      background-color: var(--green-hover);
+      color: #000;
+      box-shadow: 0 0 10px var(--green-hover);
+      transform: scale(1.02);
+    }
+
+    /* Tamanhos reais */
+    .ad-160x300 { width: 160px; height: 300px; }
+    .ad-160x600 { width: 160px; height: 600px; }
+    .ad-300x250 { width: 300px; height: 250px; }
+    .ad-320x50  { width: 320px; height: 50px; }
+    .ad-728x90  { width: 728px; height: 90px; }
+    .ad-468x60  { width: 468px; height: 60px; }
+
+    /* Iframe responsivo 16:9 */
+    .iframe-wrapper {
+      width: 100%;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(76, 175, 80, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .iframe-wrapper:hover {
+      transform: scale(1.01);
+    }
+
+    .iframe-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .ad-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ad {
+        width: 100% !important;
+        max-width: 100%;
+      }
+
+      .ad-728x90 {
+        width: 100%;
+        height: 90px;
+      }
+
+      .ad-300x250 {
+        width: 100%;
+        height: 250px;
+      }
+
+      .ad-468x60 {
+        width: 100%;
+        height: 60px;
+      }
+
+      .ad-160x300 {
+        width: 100%;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+<!-- Anúncios Acima -->
+<div class="ad-row">
+<div class="ad ad-728x90">Anúncio 728x90</div>
+<div class="ad ad-300x250">NOSSO APP</div>
+</div>
+<!-- Iframe 16:9 -->
+<div class="iframe-wrapper">
+<iframe allowfullscreen="" id="EmbedderContainer" sandbox="allow-scripts allow-same-origin" src="https://embedder.net/e/870028"></iframe>
+</div>
+<!-- Anúncios Abaixo -->
+<div class="ad-row">
+<div class="ad ad-300x250">Anúncio 300x250</div>
+<div class="ad ad-300x250">Anúncio 300x250</div>
+<div class="ad ad-300x250">Anúncio 300x250</div>
+<div class="ad ad-468x60">Anúncio 468x60</div>
+</div>
+</div>
+</body>
+</html>
